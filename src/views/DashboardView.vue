@@ -15,7 +15,7 @@ import { kpiItems } from '@/data/mockData'
 <template>
     <DashboardLayout>
         <!-- Main Grid: Left content + Right panels -->
-        <div class="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-6">
+        <div class="grid grid-cols-1 xl:grid-cols-[8fr_4fr] gap-6">
             <!-- Left Column: KPI Cards + Charts -->
             <div class="flex flex-col gap-4">
                 <!-- KPI Cards Grid -->
@@ -39,7 +39,8 @@ import { kpiItems } from '@/data/mockData'
                 </div>
 
                 <!-- Cash Flow Section - Blue background wrapper -->
-                <div class="bg-primary-500 rounded-2xl p-3 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-3 items-stretch">
+                <div
+                    class="bg-primary-500 rounded-2xl p-3 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-3 items-stretch">
                     <!-- Area chart -->
                     <CashFlowAreaChart />
 
@@ -51,8 +52,8 @@ import { kpiItems } from '@/data/mockData'
                 </div>
             </div>
 
-            <!-- Right Column: Tuner Panels -->
-            <div class="flex flex-col gap-4">
+            <!-- Right Column: Tuner Panels (blue bg wrapper) -->
+            <div class="bg-primary-500 rounded-2xl p-3 flex flex-col gap-3">
                 <ForecastTuner />
                 <CashFlowTuner />
             </div>

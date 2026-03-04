@@ -18,8 +18,8 @@ const updateSlider = (index: number, value: number) => {
 <template>
     <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
         <!-- Header -->
-        <h3 class="text-sm font-bold text-text-primary mb-1">Forecast & Budget Tuner</h3>
-        <p class="text-xs text-text-muted mb-4 italic">
+        <h3 class="text-base font-bold text-gray-900 mb-1">Forecast & Budget Tuner</h3>
+        <p class="text-sm text-gray-500 mb-4">
             Adjust revenue, COS, and OPEX assumptions to see profit scenarios live.
         </p>
 

@@ -21,7 +21,7 @@ const onUpdate = (val: number | number[]) => {
 
 <template>
     <div class="flex flex-col gap-1.5">
-        <label class="text-xs font-medium text-text-primary">{{ props.label }}</label>
+        <label class="text-sm font-medium text-gray-800">{{ props.label }}:</label>
         <Slider :modelValue="props.modelValue" :min="props.min ?? 0" :max="props.max ?? 100" :step="props.step ?? 1"
             class="w-full" @update:modelValue="onUpdate" />
     </div>
