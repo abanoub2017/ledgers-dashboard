@@ -2,8 +2,9 @@
 import { ref } from 'vue'
 import { navItems } from '@/data/mockData'
 import logoImg from '@/assets/imgs/logo.png'
+import type { NavItem } from '@/types'
 
-const items = ref(navItems)
+const items = ref<NavItem[]>(JSON.parse(JSON.stringify(navItems)))
 
 const emit = defineEmits<{
     toggleSidebar: []
@@ -49,14 +50,13 @@ const setActive = (index: number) => {
                 <i class="pi pi-th-large text-sm" />
             </div>
 
-            <div
-                class="flex items-center bg-white/80 backdrop-blur-sm rounded-[999px] p-1 gap-0.5 shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
+            <div class="flex items-center bg-white/80 backdrop-blur-sm rounded-[999px] p-1 gap-0.5 shadow-card">
                 <button v-for="(item, index) in items" :key="item.label" :class="[
                     'px-3 sm:px-5 py-1.5 sm:py-2 rounded-[999px] text-[11px] sm:text-xs font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap',
                     item.active
                         ? 'bg-primary-500 text-white shadow-sm'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-gray-100',
-                ]" @click="setActive(index)">
+                ]" @click="setActive(Number(index))">
                     {{ item.label }}
                 </button>
             </div>
@@ -66,7 +66,7 @@ const setActive = (index: number) => {
         <div class="flex items-center gap-2 sm:gap-3 mr-20 sm:mr-52 md:mr-56">
             <!-- Date badge -->
             <div
-                class="hidden sm:flex items-center gap-1.5 bg-white rounded-[999px] px-4 py-2 text-xs font-medium text-text-primary border border-border-light shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
+                class="hidden sm:flex items-center gap-1.5 bg-white rounded-[999px] px-4 py-2 text-xs font-medium text-text-primary border border-border-light shadow-card">
                 <i class="pi pi-calendar text-xs text-slate-400" />
                 Sep 25
             </div>
@@ -80,7 +80,7 @@ const setActive = (index: number) => {
 
         <!-- Action Icons - pinned to top-right with spacing, starts from top edge -->
         <div
-            class="absolute top-0 right-3 sm:right-8 flex items-center gap-0.5 sm:gap-1 bg-primary-500 rounded-b-[16px] px-3 sm:px-5 py-2 sm:py-3 shadow-[0px_10px_30px_rgba(0,0,0,0.08)]">
+            class="absolute top-0 right-3 sm:right-8 flex items-center gap-0.5 sm:gap-1 bg-primary-500 rounded-b-2xl px-3 sm:px-5 py-2 sm:py-3 shadow-md">
             <button
                 class="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer">
                 <i class="pi pi-bell text-sm sm:text-base" />

@@ -60,8 +60,7 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div
-        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
+    <div class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-card">
         <!-- Header -->
         <div class="flex items-center justify-between mb-3 sm:mb-4">
             <div class="flex items-center gap-2">
@@ -71,7 +70,7 @@ const chartOptions = ref({
         </div>
 
         <!-- Chart -->
-        <div class="h-[220px] sm:h-[280px] lg:h-[300px]">
+        <div class="h-55 sm:h-70 lg:h-75">
             <Chart type="bar" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>
 

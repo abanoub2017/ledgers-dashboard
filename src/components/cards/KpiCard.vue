@@ -13,7 +13,7 @@ const formatChange = (change: number | undefined) => {
 
 <template>
     <div
-        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 flex flex-col gap-0.5 shadow-[0px_4px_12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-shadow duration-200 overflow-hidden">
+        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 flex flex-col gap-0.5 shadow-card hover:shadow-md transition-shadow duration-200 overflow-hidden">
         <!-- Title -->
         <p class="text-[11px] sm:text-[12px] font-medium text-text-secondary truncate">{{ props.title }}</p>
 

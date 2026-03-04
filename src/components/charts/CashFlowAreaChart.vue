@@ -50,9 +50,9 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-[0px_4px_12px_rgba(0,0,0,0.06)] flex flex-col">
+    <div class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-card flex flex-col">
         <h3 class="text-sm font-semibold text-text-primary mb-4">Cash Inflow vs outflow</h3>
-        <div class="flex-1 min-h-[200px]">
+        <div class="flex-1 min-h-50">
             <Chart type="line" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>
     </div>

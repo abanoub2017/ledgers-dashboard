@@ -53,8 +53,7 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div
-        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-[0px_4px_12px_rgba(0,0,0,0.06)] flex flex-col">
+    <div class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-card flex flex-col">
         <div class="flex items-center gap-0.5 mb-3">
             <span class="text-sm font-bold text-primary-500">Profit</span>
             <span class="text-sm font-bold text-text-primary">/</span>

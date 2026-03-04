@@ -2,8 +2,9 @@
 import { ref } from 'vue'
 import { sidebarItems } from '@/data/mockData'
 import logoImg from '@/assets/imgs/logo.png'
+import type { SidebarItem } from '@/types'
 
-const items = ref(sidebarItems)
+const items = ref<SidebarItem[]>(JSON.parse(JSON.stringify(sidebarItems)))
 const isMobileOpen = ref(false)
 
 const setActive = (index: number) => {
@@ -18,7 +19,7 @@ defineExpose({ isMobileOpen })
 <template>
     <!-- Desktop Sidebar -->
     <aside
-        class="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 w-20 flex-col items-center py-5 gap-2 bg-white border-r border-border-light shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
+        class="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 w-20 flex-col items-center py-5 gap-2 bg-white border-r border-border-light shadow-card">
         <!-- Logo -->
         <div class="mb-8 flex flex-col items-center justify-center gap-1">
             <img :src="logoImg" alt="Ledgers" class="w-10 h-10 object-contain" />
@@ -32,7 +33,7 @@ defineExpose({ isMobileOpen })
                 item.active
                     ? 'bg-primary-500 text-white shadow-md'
                     : 'text-slate-700 hover:text-primary-600 hover:bg-gray-100',
-            ]" :title="item.label" @click="setActive(index)">
+            ]" :title="item.label" @click="setActive(Number(index))">
                 <i :class="[item.icon, 'text-xl font-bold']" />
             </button>
         </nav>
@@ -46,7 +47,7 @@ defineExpose({ isMobileOpen })
     <!-- Mobile Sidebar Drawer -->
     <Transition name="slide">
         <aside v-if="isMobileOpen"
-            class="fixed left-0 top-0 bottom-0 z-50 w-20 flex flex-col items-center py-5 gap-2 lg:hidden bg-white border-r border-border-light shadow-[0px_10px_30px_rgba(0,0,0,0.08)]">
+            class="fixed left-0 top-0 bottom-0 z-50 w-20 flex flex-col items-center py-5 gap-2 lg:hidden bg-white border-r border-border-light shadow-md">
             <div class="mb-8 flex flex-col items-center justify-center gap-1">
                 <img :src="logoImg" alt="Ledgers" class="w-10 h-10 object-contain" />
                 <span class="text-[9px] font-medium text-slate-500 tracking-wide">ledgers.</span>
@@ -58,7 +59,7 @@ defineExpose({ isMobileOpen })
                     item.active
                         ? 'bg-primary-500 text-white shadow-md'
                         : 'text-slate-700 hover:text-primary-600 hover:bg-gray-100',
-                ]" :title="item.label" @click="setActive(index)">
+                ]" :title="item.label" @click="setActive(Number(index))">
                     <i :class="[item.icon, 'text-xl font-bold']" />
                 </button>
             </nav>

@@ -12,7 +12,7 @@ const updateSlider = (index: number, value: number) => {
 </script>
 
 <template>
-    <div class="bg-white rounded-2xl border border-border-light p-4 sm:p-5 shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
+    <div class="bg-white rounded-2xl border border-border-light p-4 sm:p-5 shadow-card">
         <!-- Header -->
         <h3 class="text-sm font-bold text-text-primary mb-0.5">Forecast & Budget Tuner</h3>
         <p class="text-xs text-text-secondary mb-3 sm:mb-4">

@@ -2,7 +2,6 @@ export interface KpiItem {
     title: string
     value: string
     change?: number
-    changeLabel?: string
     subtitle?: string
 }
 
@@ -36,11 +35,6 @@ export interface ChartDataset {
     barPercentage?: number
     categoryPercentage?: number
     order?: number
-}
-
-export interface DashboardChartData {
-    labels: string[]
-    datasets: ChartDataset[]
 }
 
 export interface NavItem {
