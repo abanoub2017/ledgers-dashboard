@@ -10,9 +10,9 @@ export const navItems: NavItem[] = [
 
 export const sidebarItems: SidebarItem[] = [
     { icon: 'pi pi-th-large', label: 'Dashboard', active: true },
-    { icon: 'pi pi-clone', label: 'Layers', active: false },
-    { icon: 'pi pi-chart-line', label: 'Analytics', active: false },
-    { icon: 'pi pi-users', label: 'HR', active: false },
+    { icon: 'pi pi-objects-column', label: 'Layers', active: false },
+    { icon: 'pi pi-wave-pulse', label: 'Analytics', active: false },
+    { icon: 'pi pi-id-card', label: 'HR', active: false },
     { icon: 'pi pi-cog', label: 'Settings', active: false },
 ]
 

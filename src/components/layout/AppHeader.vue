@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { navItems } from '@/data/mockData'
+import logoImg from '@/assets/imgs/logo.png'
 
 const items = ref(navItems)
 
@@ -28,8 +29,7 @@ const setActive = (index: number) => {
 
             <!-- Logo (mobile) -->
             <div class="lg:hidden flex items-center">
-                <span class="text-white text-xl font-bold">g</span>
-                <span class="text-primary-200 text-xl font-bold">.</span>
+                <img :src="logoImg" alt="Ledgers" class="w-8 h-8 object-contain" />
             </div>
 
             <!-- Title section -->

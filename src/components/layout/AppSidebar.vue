@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { sidebarItems } from '@/data/mockData'
+import logoImg from '@/assets/imgs/logo.png'
 
 const items = ref(sidebarItems)
 const isMobileOpen = ref(false)
@@ -16,23 +17,23 @@ defineExpose({ isMobileOpen })
 
 <template>
     <!-- Desktop Sidebar -->
-    <aside class="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 w-16 flex-col items-center py-6 gap-2"
-        style="background-color: var(--color-surface-sidebar)">
+    <aside
+        class="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 w-20 flex-col items-center py-5 gap-2 bg-white border-r border-gray-100">
         <!-- Logo -->
-        <div class="mb-6 flex items-center justify-center w-10 h-10">
-            <span class="text-white text-2xl font-bold">g</span>
-            <span class="text-primary-400 text-2xl font-bold">.</span>
+        <div class="mb-8 flex flex-col items-center justify-center gap-1">
+            <img :src="logoImg" alt="Ledgers" class="w-10 h-10 object-contain" />
+            <span class="text-[9px] font-medium text-slate-500 tracking-wide">ledgers.</span>
         </div>
 
         <!-- Nav Icons -->
-        <nav class="flex flex-col gap-1 flex-1">
+        <nav class="flex flex-col gap-3 flex-1 justify-center">
             <button v-for="(item, index) in items" :key="item.label" :class="[
-                'flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200',
+                'flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-200',
                 item.active
                     ? 'bg-primary-500 text-white shadow-md'
-                    : 'text-slate-400 hover:text-white hover:bg-white/10',
+                    : 'text-slate-700 hover:text-primary-600 hover:bg-gray-100',
             ]" :title="item.label" @click="setActive(index)">
-                <i :class="[item.icon, 'text-lg']" />
+                <i :class="[item.icon, 'text-xl font-bold']" />
             </button>
         </nav>
     </aside>
@@ -45,21 +46,20 @@ defineExpose({ isMobileOpen })
     <!-- Mobile Sidebar Drawer -->
     <Transition name="slide">
         <aside v-if="isMobileOpen"
-            class="fixed left-0 top-0 bottom-0 z-50 w-16 flex flex-col items-center py-6 gap-2 lg:hidden"
-            style="background-color: var(--color-surface-sidebar)">
-            <div class="mb-6 flex items-center justify-center w-10 h-10">
-                <span class="text-white text-2xl font-bold">g</span>
-                <span class="text-primary-400 text-2xl font-bold">.</span>
+            class="fixed left-0 top-0 bottom-0 z-50 w-20 flex flex-col items-center py-5 gap-2 lg:hidden bg-white border-r border-gray-100">
+            <div class="mb-8 flex flex-col items-center justify-center gap-1">
+                <img :src="logoImg" alt="Ledgers" class="w-10 h-10 object-contain" />
+                <span class="text-[9px] font-medium text-slate-500 tracking-wide">ledgers.</span>
             </div>
 
-            <nav class="flex flex-col gap-1 flex-1">
+            <nav class="flex flex-col gap-3 flex-1 justify-center">
                 <button v-for="(item, index) in items" :key="item.label" :class="[
-                    'flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200',
+                    'flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-200',
                     item.active
                         ? 'bg-primary-500 text-white shadow-md'
-                        : 'text-slate-400 hover:text-white hover:bg-white/10',
+                        : 'text-slate-700 hover:text-primary-600 hover:bg-gray-100',
                 ]" :title="item.label" @click="setActive(index)">
-                    <i :class="[item.icon, 'text-lg']" />
+                    <i :class="[item.icon, 'text-xl font-bold']" />
                 </button>
             </nav>
         </aside>

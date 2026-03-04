@@ -18,7 +18,7 @@ const toggleSidebar = () => {
         <AppSidebar ref="sidebar" />
 
         <!-- Main Content Area -->
-        <div class="lg:ml-16 min-h-screen flex flex-col">
+        <div class="lg:ml-20 min-h-screen flex flex-col">
             <!-- Header -->
             <AppHeader @toggle-sidebar="toggleSidebar" />
 
