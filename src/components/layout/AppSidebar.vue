@@ -26,7 +26,7 @@ defineExpose({ isMobileOpen })
         </div>
 
         <!-- Nav Icons -->
-        <nav class="flex flex-col gap-3 flex-1 justify-center">
+        <nav class="flex flex-col gap-3 mt-10">
             <button v-for="(item, index) in items" :key="item.label" :class="[
                 'flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-200',
                 item.active
@@ -52,7 +52,7 @@ defineExpose({ isMobileOpen })
                 <span class="text-[9px] font-medium text-slate-500 tracking-wide">ledgers.</span>
             </div>
 
-            <nav class="flex flex-col gap-3 flex-1 justify-center">
+            <nav class="flex flex-col gap-3">
                 <button v-for="(item, index) in items" :key="item.label" :class="[
                     'flex items-center justify-center w-11 h-11 rounded-full cursor-pointer transition-all duration-200',
                     item.active

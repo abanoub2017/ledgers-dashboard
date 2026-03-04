@@ -20,7 +20,7 @@ const updateSlider = (index: number, value: number) => {
         </p>
 
         <!-- Sliders Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-3 mb-4">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-2.5 mb-4">
             <SliderControl v-for="(slider, index) in sliders" :key="slider.id" :label="slider.label"
                 :modelValue="slider.value" :min="slider.min" :max="slider.max"
                 @update:modelValue="(val: number) => updateSlider(index, val)" />
