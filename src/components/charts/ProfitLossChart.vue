@@ -5,6 +5,25 @@ import { profitLossData } from '@/data/mockData'
 
 const chartData = ref(profitLossData)
 
+/* Draw a gray baseline at y=0 */
+const zeroLinePlugin = {
+    id: 'zeroLine',
+    afterDraw(chart: { ctx: CanvasRenderingContext2D; chartArea: { left: number; right: number }; scales: { y: { getPixelForValue: (v: number) => number } } }) {
+        const { ctx, chartArea, scales } = chart
+        const yZero = scales.y.getPixelForValue(0)
+        ctx.save()
+        ctx.strokeStyle = '#cbd5e1'
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(chartArea.left, yZero)
+        ctx.lineTo(chartArea.right, yZero)
+        ctx.stroke()
+        ctx.restore()
+    },
+}
+
+const chartPlugins = [zeroLinePlugin]
+
 const chartOptions = ref({
     responsive: true,
     maintainAspectRatio: false,
@@ -26,7 +45,8 @@ const chartOptions = ref({
         },
         y: {
             display: false,
-            beginAtZero: true,
+            grid: { display: false },
+            border: { display: false },
         },
     },
 })
@@ -34,12 +54,13 @@ const chartOptions = ref({
 
 <template>
     <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm flex flex-col">
-        <div class="flex items-center gap-1 mb-3">
-            <span class="text-sm font-semibold text-accent-green">Profit</span>
-            <span class="text-sm font-semibold text-accent-red">/Loss</span>
+        <div class="flex items-center gap-0.5 mb-3">
+            <span class="text-sm font-bold text-primary-500">Profit</span>
+            <span class="text-sm font-bold text-text-primary">/</span>
+            <span class="text-sm font-bold text-accent-red">Loss</span>
         </div>
         <div class="flex-1 min-h-0">
-            <Chart type="line" :data="chartData" :options="chartOptions" class="h-full" />
+            <Chart type="line" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>
     </div>
 </template>
