@@ -36,9 +36,9 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
+    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm flex flex-col">
         <h3 class="text-sm font-semibold text-primary-600 mb-3">Goal Completion</h3>
-        <div class="h-[80px]">
+        <div class="flex-1 min-h-0">
             <Chart type="bar" :data="chartData" :options="chartOptions" class="h-full" />
         </div>
     </div>

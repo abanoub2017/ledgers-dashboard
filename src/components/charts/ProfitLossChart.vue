@@ -33,14 +33,13 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
-        <div class="flex items-center gap-2 mb-3">
+    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm flex flex-col">
+        <div class="flex items-center gap-1 mb-3">
             <span class="text-sm font-semibold text-accent-green">Profit</span>
-            <span class="text-sm text-text-muted">/</span>
-            <span class="text-sm font-semibold text-accent-red">Loss</span>
+            <span class="text-sm font-semibold text-accent-red">/Loss</span>
         </div>
-        <div class="h-[120px]">
-            <Chart type="bar" :data="chartData" :options="chartOptions" class="h-full" />
+        <div class="flex-1 min-h-0">
+            <Chart type="line" :data="chartData" :options="chartOptions" class="h-full" />
         </div>
     </div>
 </template>

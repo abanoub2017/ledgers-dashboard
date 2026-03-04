@@ -18,12 +18,12 @@ const toggleSidebar = () => {
         <AppSidebar ref="sidebar" />
 
         <!-- Main Content Area -->
-        <div class="lg:ml-20 min-h-screen flex flex-col">
+        <div class="lg:ml-20 min-h-screen flex flex-col overflow-x-hidden">
             <!-- Header -->
             <AppHeader @toggle-sidebar="toggleSidebar" />
 
             <!-- Dashboard Content -->
-            <main class="flex-1 p-3 lg:p-4">
+            <main class="flex-1 p-3 lg:p-6 pt-6 lg:pt-8">
                 <slot />
             </main>
         </div>

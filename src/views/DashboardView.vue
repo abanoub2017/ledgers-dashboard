@@ -14,27 +14,27 @@ import { kpiItems } from '@/data/mockData'
 
 <template>
     <DashboardLayout>
-        <!-- KPI Cards Row -->
-        <section class="mb-4">
-            <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
-                <KpiCard v-for="item in kpiItems" :key="item.title" :title="item.title" :value="item.value"
-                    :change="item.change" :subtitle="item.subtitle" />
-            </div>
-        </section>
-
-        <!-- Main Grid: Charts (left) + Panels (right) -->
-        <div class="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-4">
-            <!-- Left Column: Charts -->
+        <!-- Main Grid: Left content + Right panels -->
+        <div class="grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-6">
+            <!-- Left Column: KPI Cards + Charts -->
             <div class="flex flex-col gap-4">
+                <!-- KPI Cards Grid -->
+                <section>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-7 gap-3">
+                        <KpiCard v-for="item in kpiItems" :key="item.title" :title="item.title" :value="item.value"
+                            :change="item.change" :subtitle="item.subtitle" />
+                    </div>
+                </section>
+
                 <!-- Revenue vs Expenses + Small Charts Row -->
-                <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4 items-stretch">
                     <!-- Main bar chart -->
                     <RevenueExpensesChart />
 
                     <!-- Small charts stack -->
                     <div class="flex flex-col gap-4">
-                        <ProfitLossChart />
-                        <GoalCompletionChart />
+                        <ProfitLossChart class="flex-1" />
+                        <GoalCompletionChart class="flex-1" />
                     </div>
                 </div>
 

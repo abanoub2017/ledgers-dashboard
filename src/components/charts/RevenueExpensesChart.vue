@@ -5,6 +5,25 @@ import { revenueExpensesData } from '@/data/mockData'
 
 const chartData = ref(revenueExpensesData)
 
+/* Custom plugin: highlights a range of bars with a light background */
+const highlightPlugin = {
+    id: 'highlightRange',
+    beforeDraw(chart: { ctx: CanvasRenderingContext2D; chartArea: { top: number; bottom: number }; scales: { x: { getPixelForValue: (v: number) => number } }; data: { labels: string[] } }) {
+        const { ctx, chartArea, scales } = chart
+        const startIndex = 8 // Sep
+        const endIndex = 11 // Dec
+        const barWidth = (scales.x.getPixelForValue(1) - scales.x.getPixelForValue(0)) * 0.6
+        const x1 = scales.x.getPixelForValue(startIndex) - barWidth
+        const x2 = scales.x.getPixelForValue(endIndex) + barWidth
+        ctx.save()
+        ctx.fillStyle = 'rgba(191, 219, 254, 0.3)'
+        ctx.fillRect(x1, chartArea.top, x2 - x1, chartArea.bottom - chartArea.top)
+        ctx.restore()
+    },
+}
+
+const chartPlugins = [highlightPlugin]
+
 const chartOptions = ref({
     responsive: true,
     maintainAspectRatio: false,
@@ -52,7 +71,7 @@ const chartOptions = ref({
 
         <!-- Chart -->
         <div class="h-[300px]">
-            <Chart type="bar" :data="chartData" :options="chartOptions" class="h-full" />
+            <Chart type="bar" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>
 
         <!-- Legend / Note -->

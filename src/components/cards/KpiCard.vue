@@ -13,23 +13,23 @@ const formatChange = (change: number | undefined) => {
 
 <template>
     <div
-        class="bg-white rounded-xl border border-gray-100 p-4 min-w-[150px] flex flex-col gap-1 shadow-sm hover:shadow-md transition-shadow duration-200">
+        class="bg-white rounded-xl border border-gray-100 p-3 xl:p-4 flex flex-col gap-0.5 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
         <!-- Title -->
-        <p class="text-xs font-medium text-text-secondary truncate">{{ props.title }}</p>
+        <p class="text-[11px] xl:text-xs font-medium text-text-secondary truncate">{{ props.title }}</p>
 
-        <!-- Value + Change -->
-        <div class="flex items-end gap-2">
-            <span class="text-xl font-bold text-text-primary leading-tight">{{ props.value }}</span>
-            <span v-if="props.change !== undefined" :class="[
-                'text-xs font-semibold leading-tight mb-0.5',
-                isPositive(props.change) ? 'text-accent-green' : '',
-                isNegative(props.change) ? 'text-accent-red' : '',
-            ]">
-                {{ formatChange(props.change) }}
-            </span>
-        </div>
+        <!-- Value -->
+        <p class="text-base xl:text-lg 2xl:text-xl font-bold text-text-primary leading-tight truncate">{{ props.value }}</p>
+
+        <!-- Change -->
+        <span v-if="props.change !== undefined" :class="[
+            'text-[10px] xl:text-xs font-semibold leading-tight',
+            isPositive(props.change) ? 'text-accent-green' : '',
+            isNegative(props.change) ? 'text-accent-red' : '',
+        ]">
+            {{ formatChange(props.change) }}
+        </span>
 
         <!-- Subtitle -->
-        <p v-if="props.subtitle" class="text-[10px] text-text-muted mt-0.5">{{ props.subtitle }}</p>
+        <p v-if="props.subtitle" class="text-[9px] xl:text-[10px] text-text-muted mt-0.5 truncate">{{ props.subtitle }}</p>
     </div>
 </template>
