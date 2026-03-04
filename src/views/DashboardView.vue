@@ -38,15 +38,15 @@ import { kpiItems } from '@/data/mockData'
                     </div>
                 </div>
 
-                <!-- Cash Flow Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4">
+                <!-- Cash Flow Section - Blue background wrapper -->
+                <div class="bg-primary-500 rounded-2xl p-3 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-3 items-stretch">
                     <!-- Area chart -->
                     <CashFlowAreaChart />
 
                     <!-- Small charts stack -->
-                    <div class="flex flex-col gap-4">
-                        <CashInBankChart />
-                        <NetflowChart />
+                    <div class="flex flex-col gap-3">
+                        <CashInBankChart class="flex-1" />
+                        <NetflowChart class="flex-1" />
                     </div>
                 </div>
             </div>

@@ -19,12 +19,12 @@ const updateSlider = (index: number, value: number) => {
     <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
         <!-- Header -->
         <h3 class="text-sm font-bold text-text-primary mb-1">Forecast & Budget Tuner</h3>
-        <p class="text-xs text-text-muted mb-4">
+        <p class="text-xs text-text-muted mb-4 italic">
             Adjust revenue, COS, and OPEX assumptions to see profit scenarios live.
         </p>
 
         <!-- Sliders Grid -->
-        <div class="grid grid-cols-2 gap-x-4 gap-y-3 mb-4">
+        <div class="grid grid-cols-3 gap-x-4 gap-y-3 mb-4">
             <SliderControl v-for="(slider, index) in sliders" :key="slider.id" :label="slider.label"
                 :modelValue="slider.value" :min="slider.min" :max="slider.max"
                 @update:modelValue="(val: number) => updateSlider(index, val)" />

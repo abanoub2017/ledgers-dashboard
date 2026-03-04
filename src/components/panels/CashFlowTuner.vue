@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import SliderControl from '@/components/ui/SliderControl.vue'
 import OutputSnapshot from './OutputSnapshot.vue'
 import AiInsight from '@/components/ui/AiInsight.vue'
+import GenerateButton from '@/components/ui/GenerateButton.vue'
 import { cashFlowSliders, cashFlowSnapshot, cashFlowInsight } from '@/data/mockData'
 import type { TunerSlider } from '@/types'
 
@@ -18,7 +19,7 @@ const updateSlider = (index: number, value: number) => {
     <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
         <!-- Header -->
         <h3 class="text-sm font-bold text-text-primary mb-1">Cash Flow Scenario Tuner</h3>
-        <p class="text-xs text-text-muted mb-4">
+        <p class="text-xs text-text-muted mb-4 italic">
             Adjust inflow, outflow, and operational levers to see instant impact on runway and cash position.
         </p>
 
@@ -34,5 +35,10 @@ const updateSlider = (index: number, value: number) => {
 
         <!-- AI Insight -->
         <AiInsight :text="cashFlowInsight" />
+
+        <!-- Generate Button -->
+        <div class="mt-4">
+            <GenerateButton />
+        </div>
     </div>
 </template>

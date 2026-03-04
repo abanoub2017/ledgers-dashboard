@@ -1,9 +1,70 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Chart from 'primevue/chart'
-import { netflowData } from '@/data/mockData'
 
-const chartData = ref(netflowData)
+const chartData = ref({
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [
+        {
+            label: 'Netflow',
+            data: [130, 120, 70, -20, 120, 150, 170, 200, 220, 260, 270, 270],
+            borderColor: '#60a5fa',
+            borderWidth: 2.5,
+            fill: false,
+            tension: 0.35,
+            pointRadius: 5,
+            pointBackgroundColor: '#ffffff',
+            pointBorderColor: '#60a5fa',
+            pointBorderWidth: 2,
+            pointHoverRadius: 7,
+        },
+        {
+            label: 'Negative',
+            data: [0, 0, 0, -20, 0, 0, 0, 0, 0, 0, 0, 0],
+            borderColor: '#f472b6',
+            borderWidth: 2,
+            fill: 'origin',
+            backgroundColor: 'rgba(236, 72, 153, 0.15)',
+            tension: 0.35,
+            pointRadius: 4,
+            pointBackgroundColor: '#ffffff',
+            pointBorderColor: '#f472b6',
+            pointBorderWidth: 2,
+        },
+    ],
+})
+
+/* Highlight zone + baseline plugins */
+const highlightPlugin = {
+    id: 'netflowHighlight',
+    beforeDraw(chart: { ctx: CanvasRenderingContext2D; chartArea: { top: number; bottom: number; left: number; right: number }; scales: { x: { getPixelForValue: (v: number) => number } } }) {
+        const { ctx, chartArea, scales } = chart
+        const x1 = scales.x.getPixelForValue(8)
+        const pad = (scales.x.getPixelForValue(1) - scales.x.getPixelForValue(0)) * 0.5
+        ctx.save()
+        ctx.fillStyle = 'rgba(191, 219, 254, 0.25)'
+        ctx.fillRect(x1 - pad, chartArea.top, chartArea.right - (x1 - pad), chartArea.bottom - chartArea.top)
+        ctx.restore()
+    },
+}
+
+const baselinePlugin = {
+    id: 'netflowBaseline',
+    afterDraw(chart: { ctx: CanvasRenderingContext2D; chartArea: { left: number; right: number }; scales: { y: { getPixelForValue: (v: number) => number } } }) {
+        const { ctx, chartArea, scales } = chart
+        const yZero = scales.y.getPixelForValue(0)
+        ctx.save()
+        ctx.strokeStyle = 'rgba(236, 72, 153, 0.4)'
+        ctx.lineWidth = 1.5
+        ctx.beginPath()
+        ctx.moveTo(chartArea.left, yZero)
+        ctx.lineTo(chartArea.right, yZero)
+        ctx.stroke()
+        ctx.restore()
+    },
+}
+
+const chartPlugins = [highlightPlugin, baselinePlugin]
 
 const chartOptions = ref({
     responsive: true,
@@ -30,10 +91,10 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
-        <h3 class="text-sm font-semibold text-primary-600 mb-2">Netflow</h3>
-        <div class="h-[100px]">
-            <Chart type="line" :data="chartData" :options="chartOptions" class="h-full" />
+    <div class="bg-white rounded-xl p-4 shadow-sm flex flex-col">
+        <h3 class="text-sm font-semibold text-text-primary mb-2">NetFlow</h3>
+        <div class="flex-1 min-h-0">
+            <Chart type="line" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>
     </div>
 </template>
