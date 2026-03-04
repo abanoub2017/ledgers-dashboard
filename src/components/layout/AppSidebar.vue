@@ -18,7 +18,7 @@ defineExpose({ isMobileOpen })
 <template>
     <!-- Desktop Sidebar -->
     <aside
-        class="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 w-20 flex-col items-center py-5 gap-2 bg-white border-r border-gray-100">
+        class="hidden lg:flex fixed left-0 top-0 bottom-0 z-40 w-20 flex-col items-center py-5 gap-2 bg-white border-r border-border-light shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
         <!-- Logo -->
         <div class="mb-8 flex flex-col items-center justify-center gap-1">
             <img :src="logoImg" alt="Ledgers" class="w-10 h-10 object-contain" />
@@ -46,7 +46,7 @@ defineExpose({ isMobileOpen })
     <!-- Mobile Sidebar Drawer -->
     <Transition name="slide">
         <aside v-if="isMobileOpen"
-            class="fixed left-0 top-0 bottom-0 z-50 w-20 flex flex-col items-center py-5 gap-2 lg:hidden bg-white border-r border-gray-100">
+            class="fixed left-0 top-0 bottom-0 z-50 w-20 flex flex-col items-center py-5 gap-2 lg:hidden bg-white border-r border-border-light shadow-[0px_10px_30px_rgba(0,0,0,0.08)]">
             <div class="mb-8 flex flex-col items-center justify-center gap-1">
                 <img :src="logoImg" alt="Ledgers" class="w-10 h-10 object-contain" />
                 <span class="text-[9px] font-medium text-slate-500 tracking-wide">ledgers.</span>

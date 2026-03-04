@@ -17,12 +17,13 @@ const setActive = (index: number) => {
 </script>
 
 <template>
-    <header class="relative mx-2 mt-2 px-6 py-4 flex items-center justify-between gap-4">
+    <header
+        class="relative mx-2 sm:mx-3 mt-2 sm:mt-3 px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2 sm:gap-4">
         <!-- Left: Title -->
-        <div class="flex items-center gap-4 min-w-0">
+        <div class="flex items-center gap-3 sm:gap-4 min-w-0">
             <!-- Mobile menu button -->
             <button
-                class="lg:hidden flex items-center justify-center w-8 h-8 rounded-lg text-slate-700 hover:bg-white/40 transition-colors cursor-pointer"
+                class="lg:hidden flex items-center justify-center w-8 h-8 rounded-[10px] text-slate-700 hover:bg-white/40 transition-colors cursor-pointer"
                 @click="emit('toggleSidebar')">
                 <i class="pi pi-bars text-lg" />
             </button>
@@ -34,10 +35,10 @@ const setActive = (index: number) => {
 
             <!-- Title section -->
             <div class="hidden sm:block">
-                <h1 class="text-slate-800 text-lg font-semibold leading-tight">
+                <h1 class="text-text-primary text-lg sm:text-[22px] font-semibold leading-tight">
                     The <span class="font-bold">Essentials.</span>
                 </h1>
-                <p class="text-primary-500/70 text-xs">Here's how your business is performing today.</p>
+                <p class="text-primary-500/70 text-[11px] sm:text-xs">Here's how your business is performing today.</p>
             </div>
         </div>
 
@@ -48,9 +49,10 @@ const setActive = (index: number) => {
                 <i class="pi pi-th-large text-sm" />
             </div>
 
-            <div class="flex items-center bg-white/80 backdrop-blur-sm rounded-full p-1 gap-0.5 shadow-sm">
+            <div
+                class="flex items-center bg-white/80 backdrop-blur-sm rounded-[999px] p-1 gap-0.5 shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
                 <button v-for="(item, index) in items" :key="item.label" :class="[
-                    'px-5 py-2 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer',
+                    'px-3 sm:px-5 py-1.5 sm:py-2 rounded-[999px] text-[11px] sm:text-xs font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap',
                     item.active
                         ? 'bg-primary-500 text-white shadow-sm'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-gray-100',
@@ -61,10 +63,10 @@ const setActive = (index: number) => {
         </nav>
 
         <!-- Right: Date + Hamburger -->
-        <div class="flex items-center gap-3 mr-52 sm:mr-56">
+        <div class="flex items-center gap-2 sm:gap-3 mr-20 sm:mr-52 md:mr-56">
             <!-- Date badge -->
             <div
-                class="hidden sm:flex items-center gap-1.5 bg-white rounded-full px-4 py-2 text-xs font-medium text-slate-700 border border-gray-200 shadow-sm">
+                class="hidden sm:flex items-center gap-1.5 bg-white rounded-[999px] px-4 py-2 text-xs font-medium text-text-primary border border-border-light shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
                 <i class="pi pi-calendar text-xs text-slate-400" />
                 Sep 25
             </div>
@@ -77,10 +79,11 @@ const setActive = (index: number) => {
         </div>
 
         <!-- Action Icons - pinned to top-right with spacing, starts from top edge -->
-        <div class="absolute top-0 right-8 flex items-center gap-1 bg-primary-500 rounded-b-2xl px-5 py-3 shadow-lg">
+        <div
+            class="absolute top-0 right-3 sm:right-8 flex items-center gap-0.5 sm:gap-1 bg-primary-500 rounded-b-[16px] px-3 sm:px-5 py-2 sm:py-3 shadow-[0px_10px_30px_rgba(0,0,0,0.08)]">
             <button
-                class="flex items-center justify-center w-9 h-9 rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer">
-                <i class="pi pi-bell text-base" />
+                class="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer">
+                <i class="pi pi-bell text-sm sm:text-base" />
             </button>
             <button
                 class="hidden sm:flex items-center justify-center w-9 h-9 rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer">
@@ -91,8 +94,8 @@ const setActive = (index: number) => {
                 <i class="pi pi-users text-base" />
             </button>
             <button
-                class="flex items-center justify-center w-9 h-9 rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer">
-                <i class="pi pi-user text-base" />
+                class="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full text-white hover:bg-white/20 transition-colors cursor-pointer">
+                <i class="pi pi-user text-sm sm:text-base" />
             </button>
         </div>
     </header>

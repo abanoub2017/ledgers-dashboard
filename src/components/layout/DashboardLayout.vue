@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import AppSidebar from './AppSidebar.vue'
-import AppHeader from './AppHeader.vue'
 
-const sidebar = ref<InstanceType<typeof AppSidebar> | null>(null)
+const sidebar = ref<{ isMobileOpen: boolean } | null>(null)
 
 const toggleSidebar = () => {
     if (sidebar.value) {
@@ -23,7 +21,7 @@ const toggleSidebar = () => {
             <AppHeader @toggle-sidebar="toggleSidebar" />
 
             <!-- Dashboard Content -->
-            <main class="flex-1 p-3 lg:p-6 pt-6 lg:pt-8">
+            <main class="flex-1 p-2 sm:p-3 lg:p-4">
                 <slot />
             </main>
         </div>

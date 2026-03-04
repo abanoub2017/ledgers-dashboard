@@ -53,11 +53,12 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm flex flex-col">
+    <div
+        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-[0px_4px_12px_rgba(0,0,0,0.06)] flex flex-col">
         <div class="flex items-center gap-0.5 mb-3">
             <span class="text-sm font-bold text-primary-500">Profit</span>
             <span class="text-sm font-bold text-text-primary">/</span>
-            <span class="text-sm font-bold text-accent-red">Loss</span>
+            <span class="text-sm font-bold text-accent-pink">Loss</span>
         </div>
         <div class="flex-1 min-h-0">
             <Chart type="line" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />

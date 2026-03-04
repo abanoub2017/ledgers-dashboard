@@ -13,16 +13,17 @@ const formatChange = (change: number | undefined) => {
 
 <template>
     <div
-        class="bg-white rounded-xl border border-gray-100 p-3 xl:p-4 flex flex-col gap-0.5 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 flex flex-col gap-0.5 shadow-[0px_4px_12px_rgba(0,0,0,0.06)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-shadow duration-200 overflow-hidden">
         <!-- Title -->
-        <p class="text-[11px] xl:text-xs font-medium text-text-secondary truncate">{{ props.title }}</p>
+        <p class="text-[11px] sm:text-[12px] font-medium text-text-secondary truncate">{{ props.title }}</p>
 
         <!-- Value -->
-        <p class="text-base xl:text-lg 2xl:text-xl font-bold text-text-primary leading-tight truncate">{{ props.value }}</p>
+        <p class="text-base sm:text-lg xl:text-xl font-bold text-text-primary leading-tight truncate">{{ props.value }}
+        </p>
 
         <!-- Change -->
         <span v-if="props.change !== undefined" :class="[
-            'text-[10px] xl:text-xs font-semibold leading-tight',
+            'text-[11px] font-semibold leading-tight',
             isPositive(props.change) ? 'text-accent-green' : '',
             isNegative(props.change) ? 'text-accent-red' : '',
         ]">
@@ -30,6 +31,6 @@ const formatChange = (change: number | undefined) => {
         </span>
 
         <!-- Subtitle -->
-        <p v-if="props.subtitle" class="text-[9px] xl:text-[10px] text-text-muted mt-0.5 truncate">{{ props.subtitle }}</p>
+        <p v-if="props.subtitle" class="text-[10px] text-text-muted mt-0.5 truncate">{{ props.subtitle }}</p>
     </div>
 </template>

@@ -8,13 +8,13 @@ const chartData = ref({
         {
             label: 'Cash in Bank',
             data: [1200, 1100, 1350, 1280, 1450, 1500, 1420, 1380, 1300, 1480, 1420, 1550],
-            borderColor: '#60a5fa',
+            borderColor: '#0B86DF',
             borderWidth: 2.5,
             fill: false,
             tension: 0.35,
             pointRadius: 5,
             pointBackgroundColor: '#ffffff',
-            pointBorderColor: '#60a5fa',
+            pointBorderColor: '#0B86DF',
             pointBorderWidth: 2,
             pointHoverRadius: 7,
         },
@@ -29,7 +29,7 @@ const highlightPlugin = {
         const x1 = scales.x.getPixelForValue(8)
         const pad = (scales.x.getPixelForValue(1) - scales.x.getPixelForValue(0)) * 0.5
         ctx.save()
-        ctx.fillStyle = 'rgba(191, 219, 254, 0.25)'
+        ctx.fillStyle = 'rgba(215, 227, 240, 0.4)'
         ctx.fillRect(x1 - pad, chartArea.top, chartArea.right - (x1 - pad), chartArea.bottom - chartArea.top)
         ctx.restore()
     },
@@ -77,8 +77,8 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl p-4 shadow-sm flex flex-col">
-        <h3 class="text-sm font-semibold text-primary-600 mb-2">Cash In Bank</h3>
+    <div class="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-[0px_4px_12px_rgba(0,0,0,0.06)] flex flex-col">
+        <h3 class="text-sm font-semibold text-primary-500 mb-2">Cash In Bank</h3>
         <div class="flex-1 min-h-0">
             <Chart type="line" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>

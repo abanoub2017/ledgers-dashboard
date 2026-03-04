@@ -36,7 +36,7 @@ export const revenueExpensesData = {
         {
             label: 'Revenue',
             data: [420, 580, 150, 80, 320, 480, 560, 620, 750, 820, 900, 950],
-            backgroundColor: '#ec4899',
+            backgroundColor: '#F34C7F',
             borderRadius: 6,
             barPercentage: 0.85,
             categoryPercentage: 0.82,
@@ -44,7 +44,7 @@ export const revenueExpensesData = {
         {
             label: 'Expenses',
             data: [300, 380, 420, 350, 280, 320, 380, 420, 480, 520, 550, 600],
-            backgroundColor: '#3b82f6',
+            backgroundColor: '#0B86DF',
             borderRadius: 6,
             barPercentage: 0.85,
             categoryPercentage: 0.82,
@@ -58,21 +58,21 @@ export const profitLossData = {
         {
             label: 'Loss',
             data: [-20, -30, -180, -250, -30, 0, 0, 0, 0, 0, 0, 0],
-            backgroundColor: 'rgba(236, 72, 153, 0.5)',
-            borderColor: '#ec4899',
+            backgroundColor: 'rgba(243, 76, 127, 0.5)',
+            borderColor: '#F34C7F',
             borderWidth: 2,
             fill: 'origin',
             tension: 0.4,
             pointRadius: 3,
             pointBackgroundColor: '#ffffff',
-            pointBorderColor: '#ec4899',
+            pointBorderColor: '#F34C7F',
             pointBorderWidth: 2,
         },
         {
             label: 'Profit',
             data: [0, 0, 0, 0, 0, 10, 50, 30, 120, 200, 180, 220],
-            backgroundColor: 'rgba(96, 165, 250, 0.35)',
-            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(11, 134, 223, 0.35)',
+            borderColor: '#0B86DF',
             borderWidth: 2,
             fill: 'origin',
             tension: 0.4,
@@ -87,7 +87,7 @@ export const goalCompletionData = {
         {
             label: 'Achieved',
             data: [18, 15],
-            backgroundColor: '#ec4899',
+            backgroundColor: '#F34C7F',
             borderRadius: 0,
             barPercentage: 0.7,
             categoryPercentage: 0.65,
@@ -96,7 +96,7 @@ export const goalCompletionData = {
         {
             label: 'Target',
             data: [82, 65],
-            backgroundColor: '#3b82f6',
+            backgroundColor: '#0B86DF',
             borderRadius: {
                 topRight: 50,
                 bottomRight: 50,
@@ -116,8 +116,8 @@ export const cashFlowData = {
         {
             label: 'Inflow',
             data: [380, 420, 350, 300, 380, 450, 520, 580, 620, 680, 720, 750],
-            backgroundColor: 'rgba(59, 130, 246, 0.25)',
-            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(11, 134, 223, 0.25)',
+            borderColor: '#0B86DF',
             borderWidth: 2,
             fill: true,
             tension: 0.4,
@@ -126,14 +126,14 @@ export const cashFlowData = {
         {
             label: 'Outflow',
             data: [250, 300, 280, 320, 260, 300, 350, 380, 400, 420, 450, 480],
-            backgroundColor: 'rgba(236, 72, 153, 0.25)',
-            borderColor: '#ec4899',
+            backgroundColor: 'rgba(243, 76, 127, 0.25)',
+            borderColor: '#F34C7F',
             borderWidth: 2,
             fill: true,
             tension: 0.4,
             pointRadius: 5,
             pointBackgroundColor: '#ffffff',
-            pointBorderColor: '#ec4899',
+            pointBorderColor: '#F34C7F',
             pointBorderWidth: 2,
         },
     ],
@@ -147,11 +147,11 @@ export const cashInBankData = {
             data: [1200, 1350, 1280, 1400, 1500, 1550, 1480, 1600, 1700, 1650, 1580, 1700],
             backgroundColor: (ctx: any) => {
                 const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 200)
-                gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)')
-                gradient.addColorStop(1, 'rgba(59, 130, 246, 0.05)')
+                gradient.addColorStop(0, 'rgba(11, 134, 223, 0.5)')
+                gradient.addColorStop(1, 'rgba(11, 134, 223, 0.05)')
                 return gradient
             },
-            borderColor: '#3b82f6',
+            borderColor: '#0B86DF',
             borderWidth: 2,
             fill: true,
             tension: 0.4,
@@ -166,12 +166,12 @@ export const netflowData = {
         {
             label: 'Netflow',
             data: [130, 120, 70, -20, 120, 150, 170, 200, 220, 260, 270, 270],
-            borderColor: '#3b82f6',
+            borderColor: '#0B86DF',
             borderWidth: 2,
             fill: false,
             tension: 0.4,
             pointRadius: 3,
-            pointBackgroundColor: '#3b82f6',
+            pointBackgroundColor: '#0B86DF',
         },
     ],
 }

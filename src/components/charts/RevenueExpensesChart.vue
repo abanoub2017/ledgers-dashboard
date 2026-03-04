@@ -16,7 +16,7 @@ const highlightPlugin = {
         const x1 = scales.x.getPixelForValue(startIndex) - barWidth
         const x2 = scales.x.getPixelForValue(endIndex) + barWidth
         ctx.save()
-        ctx.fillStyle = 'rgba(191, 219, 254, 0.3)'
+        ctx.fillStyle = 'rgba(215, 227, 240, 0.5)'
         ctx.fillRect(x1, chartArea.top, x2 - x1, chartArea.bottom - chartArea.top)
         ctx.restore()
     },
@@ -60,9 +60,10 @@ const chartOptions = ref({
 </script>
 
 <template>
-    <div class="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
+    <div
+        class="bg-white rounded-xl sm:rounded-2xl border border-border-light p-3 sm:p-4 shadow-[0px_4px_12px_rgba(0,0,0,0.06)]">
         <!-- Header -->
-        <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center justify-between mb-3 sm:mb-4">
             <div class="flex items-center gap-2">
                 <span class="text-sm font-semibold text-text-primary">Revenue vs Expenses</span>
                 <i class="pi pi-chevron-down text-xs text-text-muted" />
@@ -70,12 +71,12 @@ const chartOptions = ref({
         </div>
 
         <!-- Chart -->
-        <div class="h-[300px]">
+        <div class="h-[220px] sm:h-[280px] lg:h-[300px]">
             <Chart type="bar" :data="chartData" :options="chartOptions" :plugins="chartPlugins" class="h-full" />
         </div>
 
         <!-- Legend / Note -->
-        <div class="flex items-center gap-2 mt-3 pt-3 border-t border-gray-50">
+        <div class="flex items-center gap-2 mt-3 pt-3 border-t border-border-light">
             <span class="text-primary-400 text-xs">✦</span>
             <p class="text-xs text-text-muted italic">
                 Losses in March and April driven by seasonality + marketing spikes
